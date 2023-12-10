@@ -5,11 +5,13 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 # Install necessary packages
-# This includes zip and unzip utilities
+# This includes zip, unzip, curl, and wget utilities
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     zip \
     unzip \
+    curl \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python packages

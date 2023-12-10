@@ -5,9 +5,11 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 # Install necessary packages
-# Note: base64 is typically included in most Linux distributions, so no need to install it separately.
+# This includes zip and unzip utilities
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    zip \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python packages

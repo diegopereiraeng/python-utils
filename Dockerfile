@@ -16,6 +16,7 @@ RUN apt-get update && \
 
 # Install Python packages
 RUN pip install --no-cache-dir pywinrm
+RUN pip install --no-cache-dir winrmcp
 
 # Set up a directory for your scripts and files
 RUN mkdir /usr/src/app/scripts

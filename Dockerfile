@@ -13,6 +13,7 @@ RUN apt-get update && \
     wget \
     krb5-user \
     openssh-client \
+    libicu67 \  # Add this line for the libicu dependency
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install PowerShell

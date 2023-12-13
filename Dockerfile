@@ -26,7 +26,7 @@ RUN apt-get update && \
 #     rm /tmp/powershell.deb  # 'rm' command in lowercase
 
 # Import the public repository GPG keys
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
 # Register the Microsoft's Debian repository
 RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'

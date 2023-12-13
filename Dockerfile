@@ -35,6 +35,9 @@ RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft
 RUN apt-get update \
     && apt-get install -y \
     powershell
+    
+# Install PWShell modules
+RUN pwsh -Command 'Install-Module -Name PSWSMan'
 
 # Install Python packages
 RUN pip install --no-cache-dir pywinrm

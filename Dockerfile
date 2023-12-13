@@ -1,6 +1,9 @@
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
+ARG DEBIAN_FRONTEND=noninteractive
+
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
@@ -13,8 +16,9 @@ RUN apt-get update && \
     wget \
     krb5-user \
     openssh-client \
-    libicu67 && \
-    rm -rf /var/lib/apt/lists/*  # 'rm' command in lowercase
+    dotnet-sdk-6.0 \
+    apt-transport-https && \
+    rm -rf /var/lib/apt/lists/* 
 
 # Download and install PowerShell
 RUN curl -L https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell_7.4.0-1.deb_amd64.deb -o /tmp/powershell.deb && \

@@ -15,15 +15,10 @@ RUN apt-get update && \
     openssh-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure Kerberos and SSH
-RUN echo "[libdefaults]\ndefault_realm = YOUR_DOMAIN.COM\n..." > /etc/krb5.conf
-RUN echo "GSSAPIAuthentication yes\nGSSAPIDelegateCredentials no\n..." >> /etc/ssh/ssh_config
-
-# Install PowerShell
-RUN curl -L https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz -o /tmp/powershell.tar.gz \
-    && mkdir -p /opt/microsoft/powershell/7 \
-    && tar zxf /tmp/powershell.tar.gz -C /opt/microsoft/powershell/7 \
-    && ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+# Download and install PowerShell
+RUN curl -L https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell_7.4.0-1.deb_amd64.deb -o /tmp/powershell.deb \
+    && dpkg -i /tmp/powershell.deb \
+    && rm /tmp/powershell.deb
 
 # Install Python packages
 RUN pip install --no-cache-dir pywinrm
@@ -35,3 +30,4 @@ VOLUME /usr/src/app/scripts
 
 # This container does not have a specific entrypoint. 
 # It's intended to be used as a base for running CI scripts.
+``

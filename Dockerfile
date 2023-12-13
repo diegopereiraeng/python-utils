@@ -16,7 +16,6 @@ RUN apt-get update && \
     wget \
     krb5-user \
     openssh-client \
-    dotnet-sdk-6.0 \
     apt-transport-https && \
     rm -rf /var/lib/apt/lists/* 
 

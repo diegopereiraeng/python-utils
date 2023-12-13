@@ -30,4 +30,3 @@ VOLUME /usr/src/app/scripts
 
 # This container does not have a specific entrypoint. 
 # It's intended to be used as a base for running CI scripts.
-``

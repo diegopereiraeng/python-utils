@@ -42,6 +42,7 @@ RUN pwsh -Command 'Install-Module -Name PSWSMan'
 # Install Python packages
 RUN pip install --no-cache-dir pywinrm
 RUN pip install --no-cache-dir winrmcp
+RUN pip install --no-cache-dir requests  # Add this line to install the requests library
 
 # Set up a directory for your scripts and files
 RUN mkdir /usr/src/app/scripts
